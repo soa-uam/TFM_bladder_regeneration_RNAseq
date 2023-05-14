@@ -7,38 +7,6 @@ library(factoextra)
 library(ggplot2)
 library(ConsensusClusterPlus)
 
-######################################################################
-############################# KMEANS #################################
-######################################################################
-
-vst_DEGs_lrt <- read.table(file = "data/vst_DEGs_lrt01.xls", 
-                           header = TRUE, row.names = 1) # retrive vst from data
-vst_scaled <- t(scale(t(vst_DEGs_lrt))) # input kmeans
-set.seed(123)
-km.res <- kmeans(vst_scaled, centers = 3, iter.max = 10, nstart = 25) # centers = 3, 4, 5...
-clustered_genes3 <- as.data.frame(km.res$cluster)
-colnames(clustered_genes3)[1] ="cluster"
-clustered_genes3$cluster <- paste('cluster', clustered_genes3$cluster, sep=' ')
-
-# write.table(clustered_genes3, file = "data/clustered_genes3_01.xls", sep="\t", row.names = TRUE)
-
-# elbow plot
-fviz_nbclust(vst_scaled, kmeans, method = "wss") +
-  geom_vline(xintercept = 3, linetype = 2)
-
-# cluster plot
-fviz_cluster(km.res, data = vst_scaled[, -5],
-             palette = c("orange", "red", "purple", "blue", "green"),
-             geom = "point",
-             ellipse.type = "convex", 
-             ggtheme = theme_bw()
-)
-
-# pdf("plots/kmeans0.01_elbowplot.pdf", width=12, height=8)
-# fviz_nbclust(vst_scaled, kmeans, method = "wss") +
-#   geom_vline(xintercept = 3, linetype = 2)
-# dev.off()
-
 
 ######################################################################
 #################### FUNCTIONAL ANALYSIS #############################
