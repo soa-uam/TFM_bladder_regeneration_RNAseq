@@ -1,6 +1,6 @@
-# Transcriptomic reprogramming during bladder regenerative response to chemically-induced damage
+# Transcriptomic analysis of epithelial damage response
 
-This repository contains the code for the analysis of RNA sequencing data (bulkRNAseq and scRNAseq) from a study on bladder regeneration in mice. The RNA sequencing data was obtained from bulkRNAseq of bladder tissue samples collected at 0h, 12h, 24h, 72h, 7 days and 30 days after cyclophosphamide injection. The analysis includes quality control, alignment, quantification, differential expression, functional annotation, and cell type deconvolution. In addition, we also analyzed single-cell RNA sequencing data from a previous thesis carried out in our group.
+This repository contains the code for the analysis of the RNA sequencing data (bulkRNAseq and scRNAseq) from the Master thesis by Sandra Ozáez (M.Sc. Bioinformatics and Computational Biology, UAM. May, 2023). For experimental details please refer to the written report. Code below includes quality control, alignment, quantification, differential expression, functional annotation, and cell type deconvolution. In addition, we also analyzed single-cell RNA sequencing data from a previous thesis carried out in our group.
 
 ## Table of contents
 * [bulkRNAseq DGE analysis](#bulk_DESeq2_DGE.R)
